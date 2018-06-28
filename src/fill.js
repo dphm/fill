@@ -36,17 +36,13 @@ class Image {
   }
 
   contains(point) {
-    if (point.x < 0 || point.y < 0) {
-      return false;
-    }
-
     let numRows = this.grid.length;
-    if (point.y >= numRows) {
+    if (point.y < 0 || point.y >= numRows) {
       return false;
     }
 
     let numCols = this.grid[point.y].length;
-    if (point.x >= numCols) {
+    if (point.x < 0 || point.x >= numCols) {
       return false;
     }
 
