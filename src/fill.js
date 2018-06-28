@@ -35,14 +35,24 @@ class Image {
     this.grid = grid;
   }
 
+  get height() {
+    return this.grid.length;
+  }
+
+  get width() {
+    if (this.height) {
+      return this.grid[0].length;
+    } else {
+      return 0;
+    }
+  }
+
   contains(point) {
-    let numRows = this.grid.length;
-    if (point.y < 0 || point.y >= numRows) {
+    if (point.y < 0 || point.y >= this.height) {
       return false;
     }
 
-    let numCols = this.grid[point.y].length;
-    if (point.x < 0 || point.x >= numCols) {
+    if (point.x < 0 || point.x >= this.width) {
       return false;
     }
 
@@ -89,8 +99,8 @@ function drawToCanvas(image) {
   let canvas = document.getElementById('image');
   let ctx = canvas.getContext('2d');
 
-  canvas.height = image.grid.length;
-  canvas.width = image.grid[0].length;
+  canvas.height = image.height;
+  canvas.width = image.width;
 
   image.grid.forEach((row, row_i) => {
     row.forEach((color, col_i) => {
