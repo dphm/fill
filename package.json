@@ -1,0 +1,14 @@
+{
+  "name": "fill",
+  "version": "1.0.0",
+  "main": "src/fill.js",
+  "repository": "git@github.com:quelledanielle/fill.git",
+  "author": "quelledanielle <quelledanielle@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^23.2.0"
+  }
+}
