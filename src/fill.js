@@ -48,6 +48,14 @@ class Image {
 
     return true;
   }
+
+  valueAt(point) {
+    return this.grid[point.y][point.x];
+  }
+
+  setValueAt(point, value) {
+    this.grid[point.y][point.x] = value;
+  }
 }
 
 function fill(image, start, color) {
@@ -55,7 +63,7 @@ function fill(image, start, color) {
     return;
   }
 
-  let startColor = image.grid[start.y][start.x];
+  let startColor = image.valueAt(start);
   let queue = [];
   queue.push(start);
 
@@ -65,13 +73,13 @@ function fill(image, start, color) {
       continue;
     }
 
-    let pointColor = image.grid[point.y][point.x];
+    let pointColor = image.valueAt(point);
     if (pointColor.matches(color)) {
       continue;
     }
 
     if (pointColor.matches(startColor)) {
-      image.grid[point.y][point.x] = color;
+      image.setValueAt(point, color);
       Array.prototype.push.apply(queue, point.neighbors);
     }
   }
