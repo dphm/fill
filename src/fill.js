@@ -60,11 +60,17 @@ class Image {
   }
 
   valueAt(point) {
-    return this.grid[point.y][point.x];
+    if (this.contains(point)) {
+      return this.grid[point.y][point.x];
+    } else {
+      return null;
+    }
   }
 
   setValueAt(point, value) {
-    this.grid[point.y][point.x] = value;
+    if (this.contains(point)) {
+      this.grid[point.y][point.x] = value;
+    }
   }
 }
 
