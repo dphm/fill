@@ -3,6 +3,17 @@ class Point {
     this.x = x;
     this.y = y;
   }
+
+  get neighbors() {
+    let x = this.x;
+    let y = this.y;
+    return [
+      new Point(x, y - 1),
+      new Point(x + 1, y),
+      new Point(x, y + 1),
+      new Point(x - 1, y),
+    ];
+  }
 }
 
 class Color {
@@ -65,20 +76,9 @@ function fill(image, start, color) {
 
     if (pointColor.matches(startColor)) {
       image.grid[point.y][point.x] = color;
-      Array.prototype.push.apply(queue, neighbors(point));
+      Array.prototype.push.apply(queue, point.neighbors);
     }
   }
-}
-
-function neighbors(point) {
-  let x = point.x;
-  let y = point.y;
-  return [
-    new Point(x, y - 1),
-    new Point(x + 1, y),
-    new Point(x, y + 1),
-    new Point(x - 1, y),
-  ];
 }
 
 function drawToCanvas(image) {
