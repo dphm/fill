@@ -6,7 +6,7 @@
   "author": "quelledanielle <quelledanielle@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "bundle": "browserify src/fill.js -o bundle.js",
+    "bundle": "browserify examples/phil.js -o bundle.js",
     "test": "jest"
   },
   "devDependencies": {
