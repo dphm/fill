@@ -59,6 +59,10 @@ function fill(image, start, color) {
     }
 
     let pointColor = image.grid[point.y][point.x];
+    if (pointColor.matches(color)) {
+      continue;
+    }
+
     if (pointColor.matches(startColor)) {
       image.grid[point.y][point.x] = color;
       Array.prototype.push.apply(queue, neighbors(point));
