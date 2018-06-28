@@ -82,6 +82,8 @@ let start = new Point(0, 0);
 fill(image, start, m);
 drawToCanvas(image);
 
+module.exports = fill;
+
 },{"./color":1,"./image":3,"./point":4}],3:[function(require,module,exports){
 class Image {
   constructor(grid) {

@@ -63,3 +63,5 @@ let start = new Point(0, 0);
 
 fill(image, start, m);
 drawToCanvas(image);
+
+module.exports = fill;
