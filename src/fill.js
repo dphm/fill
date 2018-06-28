@@ -103,17 +103,19 @@ function fill(image, start, color) {
 
 function drawToCanvas(image) {
   let canvas = document.getElementById('image');
-  let ctx = canvas.getContext('2d');
+  if (canvas) {
+    let ctx = canvas.getContext('2d');
 
-  canvas.height = image.height;
-  canvas.width = image.width;
+    canvas.height = image.height;
+    canvas.width = image.width;
 
-  image.grid.forEach((row, row_i) => {
-    row.forEach((color, col_i) => {
-      ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
-      ctx.fillRect(col_i, row_i, 1, 1);
+    image.grid.forEach((row, row_i) => {
+      row.forEach((color, col_i) => {
+        ctx.fillStyle = `rgb(${color.r}, ${color.g}, ${color.b})`;
+        ctx.fillRect(col_i, row_i, 1, 1);
+      });
     });
-  });
+  }
 }
 
 let b = new Color(0, 0, 0);
